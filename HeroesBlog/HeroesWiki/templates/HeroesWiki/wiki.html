@@ -1,0 +1,16 @@
+{% extends 'HeroesWiki/base.html' %}
+
+{% block content %}
+
+{% for c in castles %}
+<div class= "media">
+    {% if c.picture %}
+    <p> <img class ="img-article-left thumb" src="{{ c.picture.url }}"></p>
+    {% endif %}
+<h2>{{c.title}}</h2>
+<p> {{c.description}} </p>
+
+</div>
+{% endfor %}
+
+{% endblock %}

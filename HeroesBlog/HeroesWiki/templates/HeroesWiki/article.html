@@ -1,0 +1,12 @@
+{% extends 'HeroesWiki/base.html' %}
+
+{% block content %}
+<div class= "media">
+    {% if article.picture %}
+    <p> <img class ="img-article-left thumb" src="{{ article.picture.url }}"></p>
+    {% endif %}
+<h2>{{article.title}}</h2>
+<p> {{article.text}} </p>
+<p> {{article.date_created}} </p>
+</div>
+{% endblock %}

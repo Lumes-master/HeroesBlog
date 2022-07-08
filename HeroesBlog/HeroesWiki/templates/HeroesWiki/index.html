@@ -1,0 +1,29 @@
+{% extends 'HeroesWiki/base.html' %}
+<!--- наследую шапку меню от base --->
+
+{% block content %}
+	<!--- здесь список опубликованных статей, связанных с моделью Article 
+	 выдается через вью ArticleList. Список перебираем  через тэг for --->
+	
+<ul class="list-articles">
+	{% for a in articles %}
+			<li><div class="article-panel">
+			<p class="last">опубликовано: {{a.date_created}}</p>
+			</div>
+				{% if a.picture %}
+				<p> <img class ="img-article-left thumb" src="{{ a.picture.url }}"></p>
+				{% endif %}
+				<h2>{{a.name}}</h2>
+				<!--- выводим первые 50 знаков статьи. Вся статья по ссылке get_absolute_url --->
+			{{a.text|truncatewords:50}}
+			<div class="clear"></div>
+			<p class="link-read-post"><a href="{{a.get_absolute_url}}">Читать статью</a></p>
+			</li>
+	{% endfor %}
+</ul>
+{% endblock %}
+
+
+            
+
+
